@@ -64,43 +64,38 @@ class TestFractionClass(unittest.TestCase):
   def testIgualdade(self):
     """ Potenciacao de fracoes """
     f1 = Fraction(1, 2)
-    f2 = Fraction(3, 2)
-    res = (1/2) ==  (3/2)
+    f2 = Fraction(1, 2)
     
-    self.assertEqual(f1 == f2, res)
+    self.assertEqual(f1, f2)
 
   def testMaior(self):
     """Maior de fracoes """
-    f1 = Fraction(1, 2)
-    f2 = Fraction(3, 2)
-    res = (1/2) > (3/2)
+    f1 = Fraction(3, 2)
+    f2 = Fraction(1, 2) 
     
-    self.assertEqual(f1 > f2, res)
+    self.assertGreater(f1, f2)
 
   def testMaiorIgual(self):
     """Maior igual de fracoes """
-    f1 = Fraction(1, 2)
-    f2 = Fraction(3, 2)
-    res = (1/2) >= (3/2)
+    f1 = Fraction(3, 2)
+    f2 = Fraction(1, 2) 
     
-    self.assertEqual(f1 >= f2, res)
+    self.assertGreaterEqual(f1, f2)
 
   def testMenor(self):
     """Menor igual de fracoes """
     f1 = Fraction(1, 2)
     f2 = Fraction(3, 2)
-    res = (1/2) < (3/2)
-    
-    self.assertEqual(f1 < f2, res)
+
+    self.assertLess(f1, f2)
 
   def testMenorIgual(self):
     """Menor igual de fracoes """
     f1 = Fraction(1, 2)
     f2 = Fraction(3, 2)
-    res = (1/2) <= (3/2)
     
-    self.assertEqual(f1 <= f2, res)
+    self.assertLessEqual(f1, f2)
 
 if __name__ == '__main__':
-  unittest.main()
+  unittest.main(verbosity=2)
 
