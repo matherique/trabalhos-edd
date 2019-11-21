@@ -1,12 +1,13 @@
 #!/usr/bin/env python3
 class Complex:
-  __slots__ = ['__real', '__imag', 'sinal']
+  __slots__ = ['__real', '__imag', 'sinal', '__letra']
 
-  def __init__(self, real, imag):
+  def __init__(self, real, imag, letra='i'):
     self.__real = real
     self.__imag = imag
     self.sinal = "+" if self.__imag > 0 else "-"
-  
+    self.__letra = letra
+
   @property
   def real(self):
     return self.__real
@@ -15,18 +16,15 @@ class Complex:
   def imag(self):
     return self.__imag
 
+  @property
+  def letra(self):
+    return self.__letra
+
   def conjugado(self):
-    return Complex(self.real, self.imag * (-1))
+    return Complex(self.real, self.imag * (-1), self.letra)
 
   def __str__(self):
-    self.sinal = "-" if self.__imag > 0 else "+"
-
-    re  = f"{self.real} {self.sinal} {abs(self.imag)}i\n"
-    re += f"Parte real: {self.real}\n" 
-    re += f"Parte imaginaria: {self.imag}\n" 
-    re += f"Conjugado: {self.real} {self.sinal} {abs(self.imag)}i\n"
-
-    return re
+    return f"{self.real} {self.sinal} {abs(self.imag)}{self.letra}"
 
   def __add__(self, other):
     nr = self.real + other.real
@@ -54,5 +52,4 @@ class Complex:
     ni = numc.imag / den
 
     return Complex(nr, ni)
-
 
