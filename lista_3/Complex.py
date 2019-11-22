@@ -33,19 +33,19 @@ class Complex:
     nr = self.real + other.real
     ni = self.imag + other.imag
     
-    return Complex(nr, ni)
+    return Complex(nr, ni, self.letra)
 
   def __sub__(self, other):
     nr = self.real - other.real
     ni = self.imag - other.imag
     
-    return Complex(nr, ni)
+    return Complex(nr, ni, self.letra)
 
   def __mul__(self, other):
     nr = (self.real * other.real) + (self.imag * other.imag * (-1))
     ni = (self.real * other.imag) + (self.imag * other.real)
 
-    return Complex(nr, ni)
+    return Complex(nr, ni, self.letra)
   
   def __truediv__(self, other):
     numc = self * other.conjugado() 
@@ -54,4 +54,4 @@ class Complex:
     nr = numc.real / den
     ni = numc.imag / den
 
-    return Complex(nr, ni)
+    return Complex(nr, ni, self.letra)
