@@ -24,7 +24,10 @@ class Complex:
     return Complex(self.real, self.imag * (-1), self.letra)
 
   def __str__(self):
+    if self.imag == 0:
+        return f"{self.real}"
     return f"{self.real} {self.sinal} {abs(self.imag)}{self.letra}"
+
 
   def __add__(self, other):
     nr = self.real + other.real
@@ -52,4 +55,3 @@ class Complex:
     ni = numc.imag / den
 
     return Complex(nr, ni)
-
